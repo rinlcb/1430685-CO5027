@@ -1,0 +1,97 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="CO5027.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Gam3volution</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="stylesheet" runat="server">
+        <link rel="stylesheet" href="CSS/StyleSheet.css" type="text/css" />
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+<div id="Main_Content">
+        <div id="Header">
+            <a class="top_page" href="default.aspx">
+                <img src="Image/bannericon.png" alt="shopbanner" />
+                </a>
+            <div class="SearchBox">         
+                <form>
+                    <span><input type="text" class="search square"/><input type="button" value="Search"/></span>
+                </form>
+                <div class="ShoppingCart">
+                    <img src="Image/cart.png" alt="cart" />
+            </div>
+            </div>
+        </div>
+        <div id="Nav_Menu">
+	<ul>
+    <li class="game"><a class="txt" href="default.aspx">Game Category</a>
+        <ul class="gamenav">
+            <li><a href="#">Playstation 4</a></li>
+            <li><a href="#">Playstation 3</a></li>
+            <li><a href="#">PS Vita</a></li>
+            <li><a href="#">Xbox One</a></li>
+            <li><a href="#">Xbox 360</a></li>
+            <li><a href="#">3DS</a></li>
+            <li><a href="#">WiiU</a></li>
+            <li><a href="#">Accessories</a></li>
+        </ul>
+    </li>
+    <li class="used"><a class="txt" href="#">Used Games</a></li>
+    <li class="account"><a class="txt" href="#">My Account</a></li>
+    <li class="faq"><a class="txt" href="#">FAQ</a></li>
+    <li class="contact"><a class="txt" href="contact.aspx">Contact Us</a></li>
+  	</ul>
+        </div>
+        <div id="Wrap">
+            <div id="left_content">
+                <span class="banner_up">
+                    <img src="Image/bannerme.jpg" alt="shep" />
+                    <br class ="clearfloat" />
+                </span>
+                <span class="banner_down">
+                    <img src="Image/bannerboss.jpg" alt="boss" />
+                    <br class="clearfloat" />
+                </span>
+                <span class="banner_question">
+                    <a href="Contact.aspx">
+                    <img src="Image/question.jpg" alt="question" />
+                     </a>
+                </span>
+            </div>
+                <div>
+        <asp:ContentPlaceHolder id="rightcontent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        </div>
+            </div>
+        <div id="footer">
+            <a href="Index.aspx">
+                <img src="Image/bannericon.png" alt="shopbanner" />
+            </a>
+            <span>
+                |
+                <a href ="Index.aspx">Find Your Game</a>
+                |
+                <a href="Extra.aspx">Pre-owned Stuff</a>
+                |
+                <a href="My Account.aspx">Check Your Account</a>
+                |
+                <a href="Contact.aspx">Customer Support</a>
+                |
+                <a href="FAQ.aspx">FAQ</a>
+                |
+            </span>
+            <p class="copyright">© Gam3volution.inc All rights reserved</p>
+            <a href="http://validator.w3.org/check?uri=referer">Validate HTML</a>
+            |  
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">Validate CSS</a> 
+            |  
+            <a href="http://achecker.ca/checker/?uri=referer">Check WCAG</a>
+        </div>
+       </div>
+</body>
+</html>
