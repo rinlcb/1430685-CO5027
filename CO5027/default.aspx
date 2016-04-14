@@ -7,7 +7,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="rightcontent" runat="server">
     <div id="right_content">
                 <div class="game_banner">
-                    <p>place movable clickable etc. banner here</p>
+                        
                 </div>
                 <div class="featured_box">
                     <h3>Featured Item</h3>

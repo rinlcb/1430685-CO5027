@@ -130,6 +130,7 @@
     <Content Include="Image\bannerboss.jpg" />
     <Content Include="Image\bannericon.png" />
     <Content Include="Image\bannerme.jpg" />
+    <Content Include="Image\bannertrade.jpg" />
     <Content Include="Image\cart.png" />
     <Content Include="Image\carthover.png" />
     <Content Include="Image\contact.png" />

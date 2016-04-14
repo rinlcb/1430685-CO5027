@@ -74,21 +74,21 @@
             </a>
             <span>
                 |
-                <a href ="Index.aspx">Find Your Game</a>
+                <a href ="default.aspx">Find Your Game</a>
                 |
-                <a href="Extra.aspx">Pre-owned Stuff</a>
+                <a href="extra.aspx">Pre-owned Stuff</a>
                 |
-                <a href="My Account.aspx">Check Your Account</a>
+                <a href="myaccount.aspx">Check Your Account</a>
                 |
-                <a href="Contact.aspx">Customer Support</a>
+                <a href="contact.aspx">Customer Support</a>
                 |
-                <a href="FAQ.aspx">FAQ</a>
+                <a href="faq.aspx">FAQ</a>
                 |
             </span>
             <p class="copyright">© Gam3volution.inc All rights reserved</p>
             <a href="http://validator.w3.org/check?uri=referer">Validate HTML</a>
-            |  
-            <a href="http://jigsaw.w3.org/css-validator/check/referer">Validate CSS</a> 
+            |              
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">Validate CSS</a>           
             |  
             <a href="http://achecker.ca/checker/?uri=referer">Check WCAG</a>
         </div>
