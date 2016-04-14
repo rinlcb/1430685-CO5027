@@ -151,19 +151,19 @@ a:hover {
     width: 220px;
 }
 #Nav_Menu .account {
-    background: rgba(0, 0, 0, 0) url("/Image/account.png") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("../Image/account.png") no-repeat scroll 0 0;
     float: left;
     height: 50px;
     width: 220px;
 }
 #Nav_Menu .faq {
-    background: rgba(0, 0, 0, 0) url("/Image/faq.png") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("../Image/faq.png") no-repeat scroll 0 0;
     float: left;
     height: 50px;
     width: 220px;
 }
 #Nav_Menu .contact {
-    background: rgba(0, 0, 0, 0) url("/Image/contact.png") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("../Image/contact.png") no-repeat scroll 0 0;
     float: left;
     height: 50px;
     width: 220px;
