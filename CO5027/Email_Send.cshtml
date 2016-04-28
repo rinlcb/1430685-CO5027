@@ -1,0 +1,13 @@
+@{ // Read input
+var email = Request["email"];
+var messagearea = Request["messagearea"];
+try
+{
+// Send email
+WebMail.Send(to:"gamevolution3@gmail.com", subject: "Help request from - " + email, body: messagearea );
+}
+catch (Exception ex )
+{
+<text>@ex</text>
+}
+} 

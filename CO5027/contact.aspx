@@ -6,57 +6,48 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="rightcontent" runat="server">
     <div id="right_content">
-                <div class="contact_form">
-                    <form name="customer_form">
-                    <div class="customer_box">
-                    <h3>Customer information</h3>
-                    </div>
-                    <div class="form_box">
-                        <dl>
-                            <dt class="form_left">
-                                <label for="fname">
-                                    Name
-                                </label>
-                            </dt>
-                            <dd class="form_right">
-                                <input type="text" class="inputs" placeholder="Full Name" id="yourName" /> 
-                            </dd>
-                            <br class="clearfloat" />
-                            <dt class="form_left">
-                                <label for="femail">
-                                    E-mail Address
-                                </label>
-                            </dt>
-                            <dd class="form_right">
-                                <input type="text" class="inputs"  placeholder="E-mail Address" id="yourEmail" /> 
-                            </dd>
-                        </dl>
-                    </div>
-                        <div class="customer_box">
-                            <h3>Message</h3>
-                        </div>
-                        <div class="form_box">
-                            <dt class="form_left">
-                                <label for="inquiry">
-                                    Type of inquiry
-                                </label>
-                            </dt>
-                            <dd class="form_right">
-                                <select id="yourInquiry" name="quest_ptn">
-                                    <option value=""></option>
-                                    <option value="1">Order/Payment</option>
-                                    <option value="2">Product</option>
-                                    <option value="3">Other</option>
-                                </select>
-                            </dd>
-                            <br class="clearfloat" />
-                            <div class="txtbox">
-                                <p>
-                                    <label for="inquiry_box">
-                                        Up to 1000 characters. English only.
-                                    </label>
-                                </p>
-                                <form id="form1" runat="server">
+        <h2>Contact Us</h2>
+        <p class="contacttext">Please don't hesitate to contact us if you have any questions, comments or messages. We'd love to hear from you! :)</p>
+        <div id="contact-info">
+            <h3>Contact information</h3>
+            <dl>
+                <dt class="fleft">
+                    <label for="ftel">Telephone</label>
+                </dt>
+                <dd class="fright">
+                    <label for="ftel2">+673 1234567</label></dd>
+                <dt class="fleft">
+                    <label for="femail">Email</label>
+                </dt>
+                <dd class="fright">
+                    <label for="femail2">Gamevolution3@gmail.com</label></dd>
+                <dt class="fleft">
+                    <label for="faddress">Address</label>
+                </dt>
+                <dd class="fright">
+                    <label for="faddress2">G.24-25<br />Times Square Shopping Centre<br />Bandar Seri Begawan<br />BB2713</label>
+                </dd>
+                <dt class="fleft">
+                    <label for="ftwitter">Follow Us!</label>
+                </dt>
+                <dd class="fright">
+                    <label for="ftwiiter2"><a href="#">Twitter</a></label>
+                </dd>
+            </dl>
+        </div>
+                <div id="contact-area">
+			
+			<form method="post" action="">
+				<label for="Name">Name:</label>
+				<input type="text" name="Name" id="Name" placeholder="Enter your name" required />
+				
+				<label for="City">Subject:</label>
+				<input type="text" name="Subject" id="Subject" placeholder="Enter your subject" required/>
+	
+				<label for="Email">Email:</label>
+				<input type="email" name="Email" id="Email" placeholder="Enter your valid email address" required />
+				
+				<form id="form1" runat="server">
                                 <div>
                                       <div id="sendbutton">
                                         <asp:Label ID="lblMessage" runat="server" Text="" AssociatedControlID="txtMessageBody"></asp:Label>
@@ -67,18 +58,16 @@
                                         <asp:Button ID="Button1" runat="server" Text="Send Mail" OnClick="btnSend_Click" />
                                 </div>
                                 </form>
-                                <br class="clearfloat" />
-                            </div>
-                        </div>
-
-                            
-                        </div>
-                    </form>
+			</form>
+                    
+			
+			<div style="clear: both;"></div>
+		
+		</div>
                 
                     <div class="map_location">
                         <h2>We are located here!</h2>
                         <object width ="640" height ="480" data="https://www.google.com/maps/d/embed?mid=zA_yBnr_zTLE.kuzBgQPktgvA"></object>
-                        <p class="address">Address:  G.24-G.25 Times Square Shopping Centre, Bandar Seri Begawan BB2713</p>
                     </div>
                  
                 </div>
