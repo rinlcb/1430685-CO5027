@@ -43,6 +43,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -76,6 +84,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -95,6 +106,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddBlogEntry.aspx" />
     <Content Include="bin\CO5027.dll" />
     <Content Include="bin\CO5027.pdb" />
     <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
@@ -159,6 +171,16 @@
     <Content Include="Image\search.png" />
     <Content Include="Image\used.png" />
     <Content Include="Image\valid.png" />
+    <Content Include="Model4.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model4.edmx</DependentUpon>
+      <LastGenOutput>Model4.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model4.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model4.edmx</DependentUpon>
+      <LastGenOutput>Model4.cs</LastGenOutput>
+    </Content>
     <Content Include="myaccount.aspx" />
     <Content Include="obj\Debug\CO5027.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\CO5027.dll" />
@@ -177,13 +199,23 @@
     <Content Include="obj\Debug\CO5027.csprojResolveAssemblyReference.cache" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="Email_Send.cshtml" />
+    <EntityDeploy Include="Model4.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model4.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model4.edmx.diagram">
+      <DependentUpon>Model4.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="UploadImage.aspx" />
     <Content Include="ValidateUser.aspx" />
+    <Content Include="ViewGame.aspx" />
+    <Content Include="WebForm1.aspx" />
     <Content Include="_AppStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -192,9 +224,21 @@
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\jquery-2.2.3.js" />
     <Content Include="scripts\jquery-2.2.3.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddBlogEntry.aspx.cs">
+      <DependentUpon>AddBlogEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddBlogEntry.aspx.designer.cs">
+      <DependentUpon>AddBlogEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BlogEntry.cs">
+      <DependentUpon>Model4.tt</DependentUpon>
+    </Compile>
     <Compile Include="contact.aspx.cs">
       <DependentUpon>contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -233,6 +277,21 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="Model4.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model4.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model4.edmx</DependentUpon>
+    </Compile>
     <Compile Include="myaccount.aspx.cs">
       <DependentUpon>myaccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -243,7 +302,20 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Product.cs">
+      <DependentUpon>Model4.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterUser.cs">
+      <DependentUpon>Model4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UploadImage.aspx.cs">
+      <DependentUpon>UploadImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadImage.aspx.designer.cs">
+      <DependentUpon>UploadImage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ValidateUser.aspx.cs">
       <DependentUpon>ValidateUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -251,9 +323,31 @@
     <Compile Include="ValidateUser.aspx.designer.cs">
       <DependentUpon>ValidateUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ViewGame.aspx.cs">
+      <DependentUpon>ViewGame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewGame.aspx.designer.cs">
+      <DependentUpon>ViewGame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="ProductImages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

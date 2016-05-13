@@ -20,6 +20,7 @@
             <div class="SearchBox">         
                 <form>
                     <span><input type="text" class="search square"/><input type="button" value="Search"/></span>
+                    
                 </form>
                 <div class="ShoppingCart">
                     <img src="Image/cart.png" alt="cart" />

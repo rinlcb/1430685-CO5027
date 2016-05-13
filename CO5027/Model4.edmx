@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DatabaseModel4.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BlogEntries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="Body" Type="nvarchar(max)" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="productid" />
+          </Key>
+          <Property Name="productid" Type="nvarchar" MaxLength="38" Nullable="false" />
+          <Property Name="productname" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="productcreatedon" Type="datetime" Nullable="false" />
+          <Property Name="productmodifedon" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegisterUser">
+          <Key>
+            <PropertyRef Name="registeruser_id" />
+          </Key>
+          <Property Name="registeruser_id" Type="nvarchar" MaxLength="38" Nullable="false" />
+          <Property Name="registeruser_username" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="registeruser_email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="registeruser_password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="registeruser_createdon" Type="datetime" Nullable="false" />
+          <Property Name="registeruser_modifiedon" Type="datetime" Nullable="false" />
+          <Property Name="registeruser_rowstate" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DatabaseModel4StoreContainer">
+          <EntitySet Name="BlogEntries" EntityType="Self.BlogEntries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegisterUser" EntityType="Self.RegisterUser" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseModel4" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BlogEntry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="productid" />
+          </Key>
+          <Property Name="productid" Type="String" MaxLength="38" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="productname" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="productcreatedon" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="productmodifedon" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="RegisterUser">
+          <Key>
+            <PropertyRef Name="registeruser_id" />
+          </Key>
+          <Property Name="registeruser_id" Type="String" MaxLength="38" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="registeruser_username" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="registeruser_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="registeruser_password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="registeruser_createdon" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="registeruser_modifiedon" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="registeruser_rowstate" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DatabaseEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BlogEntries" EntityType="Self.BlogEntry" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="RegisterUsers" EntityType="Self.RegisterUser" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModel4StoreContainer" CdmEntityContainer="DatabaseEntities4">
+          <EntitySetMapping Name="BlogEntries">
+            <EntityTypeMapping TypeName="DatabaseModel4.BlogEntry">
+              <MappingFragment StoreEntitySet="BlogEntries">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="DatabaseModel4.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="productname" ColumnName="productname" />
+                <ScalarProperty Name="productcreatedon" ColumnName="productcreatedon" />
+                <ScalarProperty Name="productmodifedon" ColumnName="productmodifedon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegisterUsers">
+            <EntityTypeMapping TypeName="DatabaseModel4.RegisterUser">
+              <MappingFragment StoreEntitySet="RegisterUser">
+                <ScalarProperty Name="registeruser_id" ColumnName="registeruser_id" />
+                <ScalarProperty Name="registeruser_username" ColumnName="registeruser_username" />
+                <ScalarProperty Name="registeruser_email" ColumnName="registeruser_email" />
+                <ScalarProperty Name="registeruser_password" ColumnName="registeruser_password" />
+                <ScalarProperty Name="registeruser_createdon" ColumnName="registeruser_createdon" />
+                <ScalarProperty Name="registeruser_modifiedon" ColumnName="registeruser_modifiedon" />
+                <ScalarProperty Name="registeruser_rowstate" ColumnName="registeruser_rowstate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

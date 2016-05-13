@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="CSS/StyleSheet.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="rightcontent" runat="server">
+    <form id="form1" runat="server">
     <div id="right_content">
                 <div class="game_banner">
                         
@@ -13,112 +14,77 @@
                     <h3>Featured Item</h3>
                 </div>
                 <div id="products">
-                <table class="product_table">
-                    <tbody>
-                        <tr>
-                            <td class="product_box">
-                                <div class="product_img">
-                                    <img src="Image/Products/ps41.jpg" alt="image" />
-                                </div>
-                                <ul class="product_desc">
-                                    <li class="product_name">
-                                        <a href="">PS4 - Dragon Age: Inquisition</a>
-                                    </li>
-                                    <li class="product_date">
-                                        Release date: December 2014
-                                    </li>
-                                    <li class="product_price">
-                                        $59.99
-                                    </li>
-                                </ul>
-                            </td>
-                            <td class="product_box">
-                                <div class="product_img">
-                                    <img src="Image/Products/ps42.png" alt="image" />
-                                </div>
-                                <ul class="product_desc">
-                                    <li class="product_name">
-                                        <a href="">PS4 - Metal Gear Solid 5: Phantom Pain</a>
-                                    </li>
-                                    <li class="product_date">
-                                        Release date: September 2015
-                                    </li>
-                                    <li class="product_price">
-                                        $69.99
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="product_box">
-                                <div class="product_img">
-                                    <img src="Image/Products/xboxone1.jpg" alt="image" />
-                                </div>
-                                <ul class="product_desc">
-                                    <li class="product_name">
-                                        <a href="">XBOX ONE - Assassin's Creed: Syndicate</a>
-                                    </li>
-                                    <li class="product_date">
-                                        Release date: October 2015
-                                    </li>
-                                    <li class="product_price">
-                                        $69.99
-                                    </li>
-                                </ul>
-                            </td>
-                            <td class="product_box">
-                                <div class="product_img">
-                                    <img src="Image/Products/xboxone2.jpg" alt="image" />
-                                </div>
-                                <ul class="product_desc">
-                                    <li class="product_name">
-                                        <a href="">XBOX ONE - Forza 5</a>
-                                    </li>
-                                    <li class="product_date">
-                                        Release date: November 2013
-                                    </li>
-                                    <li class="product_price">
-                                        $49.99
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="product_box">
-                                <div class="product_img">
-                                    <img src="Image/Products/3ds1.jpg" alt="image" />
-                                </div>
-                                <ul class="product_desc">
-                                    <li class="product_name">
-                                        <a href="">3DS - Pokemon: Omega Ruby</a>
-                                    </li>
-                                    <li class="product_date">
-                                        Release date: November 2014
-                                    </li>
-                                    <li class="product_price">
-                                        $59.99
-                                    </li>
-                                </ul>
-                            </td>
-                            <td class="product_box">
-                                <div class="product_img">
-                                    <img src="Image/Products/3ds2.jpg" alt="image" />
-                                </div>
-                                <ul class="product_desc">
-                                    <li class="product_name">
-                                        <a href="">3DS - Pokemon: Alpha Sapphire</a>
-                                    </li>
-                                    <li class="product_date">
-                                        Release date: November 2014
-                                    </li>
-                                    <li class="product_price">
-                                        $59.99
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db_1430685_CO5027_2ConnectionString %>" SelectCommand="SELECT [productName], [productPlatform], [productPrice], [productAvailability], [productDateReleased], [productType], [productPhoto], [productID] FROM [GameProduct]"></asp:SqlDataSource>
+
+
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" GridLines="None" PageSize="3" ShowHeader="False">
+            <Columns>
+                
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <table style="border: 1px solid #ff6a00; background-color: white">
+                    <tr>
+                        <td style="width:200px; height: 250px;">
+                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("productPhoto") %>' />
+                        </td>
+                        <td style="width:700px; height: 250px;">
+                            <table>
+                         <tr>   
+                             <td>
+                <b>Game Title:</b>
+                                 </td>
+                             <td>
+                <asp:Label ID="productNameLabel" runat="server" Text='<%# Eval("productName") %>' />
+                                 </td>
+                
+                             </tr>
+                            <tr>
+                                <td>
+                <b>Platform:</b>
+                                    </td>
+                                <td>
+                <asp:Label ID="productPlatformLabel" runat="server" Text='<%# Eval("productPlatform") %>' />
+                </td>
+                                </tr>
+                            <tr>
+                                <td>
+                <b>Price:</b>
+                                    </td>
+                                <td>
+                <asp:Label ID="productPriceLabel" runat="server" Text='<%# Eval("productPrice") %>' />
+                </td>
+                                </tr>
+                            <tr>
+                                <td>
+                <b>Available Stock:</b>
+                <asp:Label ID="productAvailabilityLabel" runat="server" Text='<%# Eval("productAvailability") %>' />
+                </td>
+                                </tr>
+                            
+                            <tr>
+                                <td>
+                <b>Date of Released:</b>
+                <asp:Label ID="productDateReleasedLabel" runat="server" Text='<%# Eval("productDateReleased", "{0:dd/MM/yyyy}") %>' />
+                </td>
+                                </tr>
+                            <tr>
+                                <td>
+                <b>Edition:</b>
+                                    </td>
+                                <td>
+                <asp:Label ID="productTypeLabel" runat="server" Text='<%# Eval("productType") %>' />
+                </td>
+                                </tr>
                 </table>
+                            </td>
+                        </tr>
+                    </table>
+</ItemTemplate>
+                    </asp:TemplateField>
+                <asp:HyperLinkField DataNavigateUrlFields="productID" DataNavigateUrlFormatString="ViewGame.aspx?productID={0}" Text="View Product" />
+            </Columns>
+        </asp:GridView>
                 </div>
             </div>
+        </form>
 </asp:Content>
