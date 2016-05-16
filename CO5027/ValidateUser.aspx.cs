@@ -8,6 +8,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI.WebControls;
 using System.Drawing;
+using System.Web.Security;
+
 
 
 namespace CO5027
@@ -24,6 +26,7 @@ namespace CO5027
         SqlConnection connection = new SqlConnection("Data Source=SQL2014.studentwebserver.co.uk;Initial Catalog=db_1430685_CO5027_2;Persist Security Info=True;User ID=user_db_1430685_CO5027_2;Password=Assignment2016");
         SqlCommand cmd;
         SqlDataReader dr;
+
         protected void RegisterUser(object sender, EventArgs e)
         {
             Page.Validate("one");
@@ -56,15 +59,19 @@ namespace CO5027
         }
         protected void Login_Button(object sender,EventArgs e)
         {
-            Page.Validate("two");
+
             SqlConnection con = new SqlConnection("Data Source=SQL2014.studentwebserver.co.uk;Initial Catalog=db_1430685_CO5027_2;Persist Security Info=True;User ID=user_db_1430685_CO5027_2;Password=Assignment2016");
             con.Open();
             SqlCommand cmd = new SqlCommand("Select * from dbo.RegisterUser where registeruser_username='" + UserName.Text + "' and registeruser_password ='" + Password.Text + "'", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
+            cmd.Parameters.AddWithValue("registeruser_username", txtUsername.Text);
+            cmd.Parameters.AddWithValue("registeruser_password", txtPassword.Text);
             da.Fill(dt);
             if (dt.Rows.Count > 0)
             {
+                FormsAuthentication.SetAuthCookie(txtUsername.Text, true);
+                FormsAuthentication.RedirectFromLoginPage(txtPassword.Text, true);
                 Response.Redirect("default.aspx");
             }
             else

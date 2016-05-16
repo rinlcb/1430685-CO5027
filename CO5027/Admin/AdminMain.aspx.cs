@@ -5,19 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CO5027
+namespace CO5027.Admin
 {
-    public partial class MasterPage : System.Web.UI.MasterPage
+    public partial class AddNewProducts : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            
-            }
-
-        protected void LoginStatus1_LoggingOut(object sender, LoginCancelEventArgs e)
         {
 
         }
     }
-    
 }

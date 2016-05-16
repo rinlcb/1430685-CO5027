@@ -84,11 +84,10 @@ a:hover {
     width: 200px;
 
 }
+
 #Header .SearchBox { 
 	padding:6px 15px 6px 30px;
-	margin: 110px 0 0 500px;
-	background: url('../Image/search.png') no-repeat 0px 30px; 
-    background-size: 35px 35px;
+	margin: 50px 0 0 500px;
     position: relative;
     bottom: 2px;
     display: inline-block;
@@ -107,7 +106,7 @@ a:hover {
 
 .ShoppingCart img {
     height: 80px;
-    width: 300px;
+    width: 250px;
     float: right;
 }
 
@@ -190,7 +189,7 @@ a:hover {
     text-decoration: underline;
 }
 #Wrap {
-    background-color:gray;
+    background-color:white;
     height: 1450px;
     width: 1168px;
     position: relative;
@@ -735,4 +734,120 @@ button.submit:active {
     text-align: center;
     vertical-align: middle;
     display: block;
+}
+#Nav_Menu3 {
+    background-color: #001c47;
+    position: relative;
+    height: 60px;
+    display: block;
+
+}
+#Nav_Menu3 li {
+    float: left;
+    border-right:1px solid #bbb;
+    height: 100%;
+    
+}
+#Nav_Menu3 ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+
+}
+#Nav_Menu3 li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+#Nav_Menu3 li a:hover:not(.active) {
+    background: rgba(0, 0, 0, 0) linear-gradient(135deg, #67c1f5 0%, #417a9b 100%) repeat scroll 0 0;
+    color: white;
+}
+#Nav_Menu3 ul li {
+    position: relative;
+}
+.game3 {
+    float: left;
+    height: 50px;
+    width: 200px;
+}
+
+.account3 {
+    float: left;
+    height: 50px;
+    width: 200px;
+}
+.faq3 {
+    float: left;
+    height: 50px;
+    width: 200px;
+}
+.contact3 {
+    float: left;
+    height: 50px;
+    width: 220px;
+}
+#Nav_Menu3 .txt {
+    display: block;
+    font-size: 100%;
+    color: #00d6ff;
+
+}
+#Nav_Menu3 a {
+    display: block;
+    height: 100%;
+}
+.game3 ul:before, nav ul:after {
+    content:"";
+    display:table;
+}
+
+.game3 ul > li {
+    float: left;
+    position: relative;
+
+}
+.game3 a {
+    display:block;
+    padding:10px 40px;
+    line-height:1.2em;
+    color:#fff;
+    border-left:1px solid #595959;
+    text-decoration: none;
+
+}
+.game3 a:hover {
+    text-decoration:none;
+    background:#595959 none repeat scroll 0 0;
+}
+
+.game3 li ul li {
+    width:220px;
+}
+.game3 li ul a {
+    border: medium none;
+}
+.game3 li ul a:hover {
+    background:rgba(0,0,0,0.2) none repeat scroll 0 0;
+}
+.game3 ul > li:hover ul {
+    visibility:visible;
+    opacity:1;
+    filter:alpha(opacity=100);
+}
+.game3 li ul {
+    position:absolute;
+    left:0;
+    top:36px;
+    z-index:1;
+    visibility:hidden;
+    opacity:0;
+    filter:alpha(opacity=0);
+    -webkit-transition:200ms ease;
+    -moz-transition:200ms ease;
+    -o-transition:200ms ease;
+    transition:200ms ease;
 }

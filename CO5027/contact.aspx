@@ -47,7 +47,6 @@
 				<label for="Email">Email:</label>
 				<input type="email" name="Email" id="Email" placeholder="Enter your valid email address" required />
 				
-				<form id="form1" runat="server">
                                 <div>
                                       <div id="sendbutton">
                                         <asp:Label ID="lblMessage" runat="server" Text="" AssociatedControlID="txtMessageBody"></asp:Label>
@@ -57,7 +56,7 @@
                                 <div>
                                         <asp:Button ID="Button1" runat="server" Text="Send Mail" OnClick="btnSend_Click" />
                                 </div>
-                                </form>
+                               
 			</form>
                     
 			

@@ -5,19 +5,31 @@
     <link rel="stylesheet" href="CSS/StyleSheet.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="rightcontent" runat="server">
-    <form id="form1" runat="server">
     <div id="right_content">
                 <div class="game_banner">
                         
                 </div>
                 <div class="featured_box">
-                    <h3>Featured Item</h3>
+                    <table id="searchtable">
+                        
+                    <tr>
+                        <td>
+                        <h3>Featured Item</h3>
+                            </td>
+                        <td>
+                <asp:TextBox ID="SearchText" runat="server"></asp:TextBox></td><td><asp:Button ID="SearchButton" runat="server" Text="Search" OnClick="SearchButton_Click" /></td>
+                    </tr>
+                    </table>
                 </div>
                 <div id="products">
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db_1430685_CO5027_2ConnectionString %>" SelectCommand="SELECT [productName], [productPlatform], [productPrice], [productAvailability], [productDateReleased], [productType], [productPhoto], [productID] FROM [GameProduct]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db_1430685_CO5027_2ConnectionString %>" SelectCommand="SELECT [productName], [productPlatform], [productPrice], [productAvailability], [productDateReleased], [productType], [productPhoto], [productID] FROM [GameProduct]">
+                    <FilterParameters>
+            <asp:ControlParameter Name="productPlatform" ControlID="SearchText" PropertyName="Text" />
+        </FilterParameters>
+                </asp:SqlDataSource>
 
 
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" GridLines="None" PageSize="3" ShowHeader="False">
+        <asp:GridView ID="GridView1" runat="server" EmptyDataText="No product results found." AutoGenerateColumns="False" DataSourceID="SqlDataSource1" AllowPaging="True" GridLines="None" PageSize="3" ShowHeader="False">
             <Columns>
                 
                 <asp:TemplateField>
@@ -86,5 +98,4 @@
         </asp:GridView>
                 </div>
             </div>
-        </form>
 </asp:Content>

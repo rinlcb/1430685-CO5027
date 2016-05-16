@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="CO5027.Admin.AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="stylesheet" runat="server">
+        <link rel="stylesheet" href="../CSS/AdminStyleSheet.css" type="text/css" />
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="admin_wrap">
+    <div>
+        <div id="Header">
+            <a class="top_page" href="default.aspx">
+                <img src="../Image/bannericon.png" alt="shopbanner" />
+                </a>
+            </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+            </div>
+    </form>
+</body>
+</html>

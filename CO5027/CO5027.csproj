@@ -79,11 +79,19 @@
       <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Data.Entity.Design" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -106,7 +114,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AddBlogEntry.aspx" />
+    <Content Include="Admin\AdminAddProduct.aspx" />
+    <Content Include="Admin\AdminMain.aspx" />
+    <Content Include="CSS\AdminStyleSheet.css" />
+    <Content Include="Admin\Login.aspx" />
     <Content Include="bin\CO5027.dll" />
     <Content Include="bin\CO5027.pdb" />
     <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
@@ -134,7 +145,6 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
     <Content Include="contact.aspx" />
     <Content Include="CSS\StyleSheet.css" />
-    <Content Include="extra.aspx" />
     <Content Include="faq.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Image\account.png" />
@@ -206,16 +216,16 @@
     <Content Include="Model4.edmx.diagram">
       <DependentUpon>Model4.edmx</DependentUpon>
     </Content>
+    <Content Include="Admin\Web.config" />
+    <Content Include="Admin\AdminMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="UploadImage.aspx" />
     <Content Include="ValidateUser.aspx" />
     <Content Include="ViewGame.aspx" />
-    <Content Include="WebForm1.aspx" />
     <Content Include="_AppStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -229,12 +239,33 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBlogEntry.aspx.cs">
-      <DependentUpon>AddBlogEntry.aspx</DependentUpon>
+    <Compile Include="Admin\AdminAddProduct.aspx.cs">
+      <DependentUpon>AdminAddProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddBlogEntry.aspx.designer.cs">
-      <DependentUpon>AddBlogEntry.aspx</DependentUpon>
+    <Compile Include="Admin\AdminAddProduct.aspx.designer.cs">
+      <DependentUpon>AdminAddProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminMain.aspx.cs">
+      <DependentUpon>AdminMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminMain.aspx.designer.cs">
+      <DependentUpon>AdminMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminMaster.Master.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminMaster.Master.designer.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="BlogEntry.cs">
       <DependentUpon>Model4.tt</DependentUpon>
@@ -252,13 +283,6 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="extra.aspx.cs">
-      <DependentUpon>extra.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="extra.aspx.designer.cs">
-      <DependentUpon>extra.aspx</DependentUpon>
     </Compile>
     <Compile Include="faq.aspx.cs">
       <DependentUpon>faq.aspx</DependentUpon>
@@ -309,13 +333,6 @@
     <Compile Include="RegisterUser.cs">
       <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
-    <Compile Include="UploadImage.aspx.cs">
-      <DependentUpon>UploadImage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UploadImage.aspx.designer.cs">
-      <DependentUpon>UploadImage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ValidateUser.aspx.cs">
       <DependentUpon>ValidateUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -329,13 +346,6 @@
     </Compile>
     <Compile Include="ViewGame.aspx.designer.cs">
       <DependentUpon>ViewGame.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

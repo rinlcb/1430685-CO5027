@@ -12,39 +12,35 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <form id="form1" runat="server">
 <div id="Main_Content">
         <div id="Header">
             <a class="top_page" href="default.aspx">
                 <img src="Image/bannericon.png" alt="shopbanner" />
                 </a>
+            <li style="float:right">
+                <asp:LoginName ID="LoginName1" runat="server" />
+                <asp:LoginStatus ID="LoginStatus1" runat="server" OnLoggingOut="LoginStatus1_LoggingOut" />
+            </li>
+            
             <div class="SearchBox">         
-                <form>
-                    <span><input type="text" class="search square"/><input type="button" value="Search"/></span>
-                    
-                </form>
+                
+                
                 <div class="ShoppingCart">
                     <img src="Image/cart.png" alt="cart" />
             </div>
+                    
             </div>
+
         </div>
-        <div id="Nav_Menu">
+        <div id="Nav_Menu3">
 	<ul>
-    <li class="game"><a class="txt" href="default.aspx">Game Category</a>
-        <ul class="gamenav">
-            <li><a href="#">Playstation 4</a></li>
-            <li><a href="#">Playstation 3</a></li>
-            <li><a href="#">PS Vita</a></li>
-            <li><a href="#">Xbox One</a></li>
-            <li><a href="#">Xbox 360</a></li>
-            <li><a href="#">3DS</a></li>
-            <li><a href="#">WiiU</a></li>
-            <li><a href="#">Accessories</a></li>
-        </ul>
+    <li class="game3"><a class="txt" href="default.aspx">Game Category</a>
     </li>
-    <li class="used"><a class="txt" href="#">Used Games</a></li>
-    <li class="account"><a class="txt" href="#">My Account</a></li>
-    <li class="faq"><a class="txt" href="#">FAQ</a></li>
-    <li class="contact"><a class="txt" href="contact.aspx">Contact Us</a></li>
+    <li class="account3"><a class="txt" href="#">My Account</a></li>
+    <li class="faq3"><a class="txt" href="#">FAQ</a></li>
+    <li class="contact3"><a class="txt" href="contact.aspx">Contact Us</a></li>
+        
   	</ul>
         </div>
         <div id="Wrap">
@@ -94,5 +90,6 @@
             <a href="http://achecker.ca/checker/?uri=referer">Check WCAG</a>
         </div>
        </div>
+</form>
 </body>
 </html>

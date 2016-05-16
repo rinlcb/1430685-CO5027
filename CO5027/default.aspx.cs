@@ -11,7 +11,23 @@ namespace CO5027
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!this.IsPostBack)
+            {
+                SearchProducts();
+            }
         }
+        
+        private void SearchProducts()
+        {
+            string value = SearchText.Text;
+            value = value.Replace("'", "['']");
+            SqlDataSource1.SelectCommand = "SELECT productID, productName, productPlatform, productPrice, productAvailability, productDateReleased, productType, productPhoto FROM dbo.GameProduct WHERE (productName LIKE '" + value.ToString() + "%')"; 
+                }
+        protected void SearchButton_Click(object sender, EventArgs e)
+        {
+
+            SearchProducts();
+        }
+    
     }
 }

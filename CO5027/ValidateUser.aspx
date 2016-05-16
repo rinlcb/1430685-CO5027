@@ -10,8 +10,12 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="rightcontent" runat="server">
+    <script type="text/javascript">
+    function validateLength(oSrc, args){
+        args.IsValid = (args.Value.length >= 6 && args.Value.length <= 25);
+    }
+</script>
     <div id="right_content">
-<form id="form2" runat="server">
         <div id="left_register">
             <h2>Would you like to register? Please fill in the form below!</h2>                               
 <table border="0" cellpadding="10" cellspacing="0">    
@@ -29,8 +33,13 @@
             Password
         </td>
         <td class="auto-style1"><asp:TextBox ID="txtPassword" runat="server" TextMode="Password" /></td>
-        <td><asp:RequiredFieldValidator ErrorMessage="Required" ForeColor="Red" ControlToValidate="txtPassword"
-                runat="server" ValidationGroup="one" /></td>
+        <td><asp:CustomValidator id="customValidator" runat="server" 
+    ControlToValidate = "txtPassword"
+    ErrorMessage = "Password must be between 6 to 25 characters!"
+            ForeColor="Red"
+    ClientValidationFunction="validateLength"
+            ValidationGroup="one" >
+</asp:CustomValidator></td>
     </tr>
     <tr>
         <td>
@@ -90,6 +99,6 @@
                 </table>
             
         </div>
-</form>
+
     </div>
 </asp:Content>
